@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\LeaveModule\**" />
+    <Compile Remove="Controllers\PayrollModule\**" />
+    <Content Remove="Controllers\LeaveModule\**" />
+    <Content Remove="Controllers\PayrollModule\**" />
+    <EmbeddedResource Remove="Controllers\LeaveModule\**" />
+    <EmbeddedResource Remove="Controllers\PayrollModule\**" />
+    <None Remove="Controllers\LeaveModule\**" />
+    <None Remove="Controllers\PayrollModule\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Faker.Net" Version="2.0.154" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Common" Version="8.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Graph" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Identity.Web" Version="2.5.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Hris.Business\Hris.Business.csproj" />
+    <ProjectReference Include="..\Hris.Data\Hris.Data.csproj" />
+    <ProjectReference Include="..\Hris.Resource\Hris.Resource.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="EmailTemplates\InviteTemplate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="EmailTemplates\LeaveTemplate\LeaveTemplate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
